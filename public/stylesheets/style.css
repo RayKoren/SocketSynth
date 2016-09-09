@@ -1,1 +1,43 @@
+body {
+  background-color: #2A2B2C;
+  color: #00CCFF;
+}
 
+/*Keyboard Styles*/
+.wrapper {
+  width: 90rem;
+  margin: 4rem auto;
+}
+
+.key {
+  width: 35px;
+  float: left;
+  margin: 2px;
+  position: relative;
+}
+
+.blackKey {
+  width: 20px;
+  height: 70px;
+  background: black;
+  border-radius: 5px;
+  position: absolute;
+  left: 68px;
+  z-index: 10;
+}
+
+.whiteKey {
+  width: 35px;
+  height: 100px;
+  background: white;
+  border-radius: 5px;
+  z-index: 5;
+  margin: 2px;
+}
+
+.whiteKey:hover {
+  background: #d2d1d2;
+}
+.blackKey:hover {
+  background: #201f20;
+}
