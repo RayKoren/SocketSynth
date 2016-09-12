@@ -1,9 +1,9 @@
 <div class="row" >
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <p ng-repeat="message in messages"></p>
     </div>
-    <div class="col-sm-12">
-      <form class="" action="" method="post" ng-submit="sendMessage()">
+    <div class="col-sm-6">
+      <form class="" action="" method="post" ng-submit="sendMessage()" ng-keydown="noteStart()" ng-keyup="noteStop()">
           <input type="text" name="message" value="" ng-model="message">
           <input type="button" name="submit" type="submit"  value="Send">
       </form>
