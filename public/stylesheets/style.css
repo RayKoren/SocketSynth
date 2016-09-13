@@ -43,3 +43,63 @@ body {
 .blackKey:hover {
   background: #201f20;
 }
+/* Control Panel */
+main {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width: medium;
+  border-radius: 4px;
+}
+.outside {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width: medium;
+  border-radius: 2px;
+  margin: 10px;
+  width: 80px;
+  height: 230px;
+}
+input[type='range'] {
+    -webkit-appearance: slider-vertical;
+    background-color: #ccc;
+    height: 158px;
+    width: 2px;
+    margin: 8px auto;
+}
+
+.outsideWave {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width: medium;
+  border-radius: 2px;
+  margin: 10px;
+  width: 160px;
+  height: 170px;
+}
+.waveBtn {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width:thin;
+  border-radius: 2px;
+  margin: 4px;
+  width: 60px;
+  height: 60px;
+
+}
+.waveBtn:hover {
+  background: hsla(187.7, 91.36%, 31.76%, 0.3);
+  box-shadow: 0px 0px 2px 2px hsla(0, 0%, 100%, 0.3);
+}
+.waveBtn:active {
+  background: -webkit-radial-gradient( circle, #81C2CC 10%, #39A0AF 80%);
+  box-shadow: 0px 0px 3px 3px hsl(0, 35%, 93%)
+  text-align: center;
+}
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

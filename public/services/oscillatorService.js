@@ -3,13 +3,9 @@ angular.module("app.services")
         function(audioContext) {
             return function() {
                 var vco = audioContext.createOscillator();
-                // vco.type = vco.SINE;
-                vco.frequency.value = 200;
-                vco.type = "sine";
+                vco.type = 'square';
                 vco.start(0);
-
                 return vco;
-
             };
 
         }

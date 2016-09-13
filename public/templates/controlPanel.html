@@ -1,0 +1,43 @@
+<div class="row ">
+    <div class="col-sm-6 text-center outside">
+        <form>
+            <label for="osc">Vol
+                {{ vol.value }}
+                <input type="range" name="range" ng-model="vol.value" step="1" min="{{min}}" max="{{max}}">
+            </label>
+        </form>
+    </div>
+
+    <div class="col-sm-6 text-center outsideWave">
+        <form>
+            <label for="wave">Wave
+                {{ wave.value }}
+                <div class="row">
+                    <div class="col-sm-6 text-center waveBtn">
+                        <button type="button" name="sine"  ng-click="wave.value = 'sine'">
+                            &#8767;
+                        </button>
+                    </div>
+                    <div class="col-sm-6 text-center waveBtn">
+                        <button type="button" name="square" ng-click="wave.value = 'square'">
+                          [ ]
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 text-center waveBtn">
+                      <button type="button" name="button" ng-click="wave.value = 'triangle'">
+                          /\
+                      </button>
+                  </div>
+                  <div class="col-sm-6 text-center waveBtn">
+                      <button type="button" name="button" ng-click="wave.value = 'sawtooth'">
+                          /\/
+                      </button>
+                  </div>
+
+                </div>
+            </label>
+        </form>
+    </div>
+</div>
