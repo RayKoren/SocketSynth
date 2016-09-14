@@ -59,7 +59,7 @@ main {
   width: 80px;
   height: 230px;
 }
-input[type='range'] {
+.verticalRange {
     -webkit-appearance: slider-vertical;
     background-color: #ccc;
     height: 158px;
@@ -74,7 +74,7 @@ input[type='range'] {
   border-radius: 2px;
   margin: 10px;
   width: 160px;
-  height: 170px;
+  height: auto;
 }
 .waveBtn {
   border-style: solid;
@@ -109,6 +109,6 @@ button {
   border-width: medium;
   border-radius: 2px;
   margin: 10px;
-  width: 300px;
+  width: 600px;
   height: 200px;
 }

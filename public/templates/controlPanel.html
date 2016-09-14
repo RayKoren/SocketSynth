@@ -1,16 +1,16 @@
 <div class="row ">
-    <div class="col-sm-6 text-center outside">
+    <div class="col-sm-4 text-center outside">
         <form>
             <label for="osc">Vol
                 {{ vol.value }}
-                <input type="range" name="range" ng-model="vol.value" step="1" min="{{min}}" max="{{max}}">
+                <input type="range" name="rangeV" ng-model="vol.value" step=".2" min="{{min}}" max="{{max}}" class="verticalRange">
             </label>
         </form>
     </div>
 
-    <div class="col-sm-6 text-center outsideWave">
+    <div class="col-sm-4 text-center outsideWave">
         <form>
-            <label for="wave">Wave
+            <label for="wave 1">Wave 1
                 {{ wave.value }}
                 <div class="row">
                     <div class="col-sm-6 text-center waveBtn">
@@ -35,6 +35,53 @@
                           /\/
                       </button>
                   </div>
+
+                </div>
+                <div class="row">
+                  <label for="osc">Detune
+                      {{ detune.value }}
+                      <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" >
+                  </label>
+
+                </div>
+            </label>
+        </form>
+    </div>
+
+    <div class="col-sm-4 text-center outsideWave">
+        <form>
+            <label for="wave 2">Wave 2
+                {{ wave2.value }}
+                <div class="row">
+                    <div class="col-sm-6 text-center waveBtn">
+                        <button type="button" name="sine"  ng-click="wave2.value = 'sine'">
+                            &#8767;
+                        </button>
+                    </div>
+                    <div class="col-sm-6 text-center waveBtn">
+                        <button type="button" name="square" ng-click="wave2.value = 'square'">
+                          [ ]
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 text-center waveBtn">
+                      <button type="button" name="button" ng-click="wave2.value = 'triangle'">
+                          /\
+                      </button>
+                  </div>
+                  <div class="col-sm-6 text-center waveBtn">
+                      <button type="button" name="button" ng-click="wave2.value = 'sawtooth'">
+                          /\/
+                      </button>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <label for="osc">Detune
+                      {{ detune2.value }}
+                      <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" >
+                  </label>
 
                 </div>
             </label>
