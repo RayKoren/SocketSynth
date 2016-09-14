@@ -1,6 +1,8 @@
-angular.module('app.controllers').controller('coreController', ['$scope', '$location', '$document', 'audioContext', 'oscillatorService', 'vcaService', function($scope, $location, $document, audioContext, oscillatorService, vcaService) {
+angular.module('app.controllers').controller('coreController', ['$scope', '$location', '$document', 'audioContext', 'oscillatorService', 'vcaService', 'analyserService', '$timeout', function($scope, $location, $document, audioContext, oscillatorService, vcaService, analyserService, $timeout) {
     var vco = oscillatorService();
     var vca = vcaService();
+    var analyser = analyserService();
+
     $scope.wave = {
         value: 'square'
     };
@@ -20,11 +22,12 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$loca
         vca.gain.value = $scope.vol.value;
         /* Connections */
         vco.connect(vca);
-        vca.connect(audioContext.destination);
-
+        vca.connect(analyser);
+        analyser.connect(audioContext.destination);
     };
     $scope.noteStop = function() {
         vca.gain.value = 0;
+
     };
 
 }]);
