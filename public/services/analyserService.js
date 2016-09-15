@@ -6,7 +6,7 @@ angular.module("app.services")
             var analyser = audioContext.createAnalyser();
             var frequencyData = new Uint8Array(220);
             var svgHeight = 190;
-            var svgWidth = 592;
+            var svgWidth = 580;
             var barPadding = '.2';
 
             var svg =    d3.select('div.svganalyserContainer').append('svg').attr('height', svgHeight).attr('width', svgWidth);

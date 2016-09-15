@@ -1,4 +1,4 @@
-<div class="row ">
+<div class="row">
     <div class="col-sm-4 text-center outside">
         <form>
             <label for="osc">Vol
@@ -13,34 +13,30 @@
             <label for="wave 1">Wave 1
                 {{ wave.value }}
                 <div class="row">
-                    <div class="col-sm-6 text-center waveBtn">
-                        <button type="button" name="sine"  ng-click="wave.value = 'sine'">
-                            &#8767;
-                        </button>
-                    </div>
-                    <div class="col-sm-6 text-center waveBtn">
-                        <button type="button" name="square" ng-click="wave.value = 'square'">
-                          [ ]
-                        </button>
-                    </div>
+                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'sine'">
+
+                          &#8767;
+
+                  </div>
+                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'square'">
+                        [ ]
+
+                  </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 text-center waveBtn">
-                      <button type="button" name="button" ng-click="wave.value = 'triangle'">
+                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'triangle'">
+
                           /\
-                      </button>
                   </div>
-                  <div class="col-sm-6 text-center waveBtn">
-                      <button type="button" name="button" ng-click="wave.value = 'sawtooth'">
+                  <div class="col-sm-6 text-center waveBtn " ng-click="wave.value = 'sawtooth'">
                           /\/
-                      </button>
                   </div>
 
                 </div>
                 <div class="row">
                   <label for="osc">Detune
                       {{ detune.value }}
-                      <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" >
+                      <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" value="18.2" >
                   </label>
 
                 </div>
@@ -53,34 +49,30 @@
             <label for="wave 2">Wave 2
                 {{ wave2.value }}
                 <div class="row">
-                    <div class="col-sm-6 text-center waveBtn">
-                        <button type="button" name="sine"  ng-click="wave2.value = 'sine'">
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'sine'">
+
                             &#8767;
-                        </button>
+
                     </div>
-                    <div class="col-sm-6 text-center waveBtn">
-                        <button type="button" name="square" ng-click="wave2.value = 'square'">
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'square'">
                           [ ]
-                        </button>
+
                     </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 text-center waveBtn">
-                      <button type="button" name="button" ng-click="wave2.value = 'triangle'">
+                  <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'triangle'">
+
                           /\
-                      </button>
                   </div>
-                  <div class="col-sm-6 text-center waveBtn">
-                      <button type="button" name="button" ng-click="wave2.value = 'sawtooth'">
+                  <div class="col-sm-6 text-center waveBtn " ng-click="wave2.value = 'sawtooth'">
                           /\/
-                      </button>
                   </div>
 
                 </div>
                 <div class="row">
                   <label for="osc">Detune
                       {{ detune2.value }}
-                      <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" >
+                      <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" value="11.2">
                   </label>
 
                 </div>

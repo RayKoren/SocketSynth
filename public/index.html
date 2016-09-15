@@ -25,15 +25,19 @@
         <header>
             <topnav></topnav>
         </header>
-        <main class="container">
+        <main class="container" >
             <div ui-view>
                 <div ng-controller="coreController">
-                    <analyser id="analyserContainer"></analyser>
+                  <div ng-keydown="keyPress($event.keyCode)" ng-keyup="keyOff()" >
+
+
+                    <analyser></analyser>
                     <controlpanel></controlpanel>
 
                     <keyboard></keyboard>
 
                     <socketform></socketform>
+                </div>
                 </div>
             </div>
 
@@ -48,7 +52,7 @@
         <script type="text/javascript" src="directives/keyboardDirective.js"></script>
         <script type="text/javascript" src="/directives/synthControlPanelDirective.js"></script>
         <script type="text/javascript" src="/directives/analyserDirective.js"></script>
-
+        <scrip type="text/javascript" src="/directives/keyPressDirective.js"></script>
         <!-- Controllers -->
         <script type="text/javascript" src="/controllers/mainController.js"></script>
         <script type="text/javascript" src="/controllers/coreController.js"></script>

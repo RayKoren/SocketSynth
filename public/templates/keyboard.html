@@ -1,7 +1,9 @@
 <div class="row">
   Freq: {{ key.value }}
+  {{onKeyDownResult}}
   <div class="col-sm-12">
-    <div class="wrapper" id="keyboard" ng-keydown="noteStart()" ng-keyup="noteStop()">
+
+    <div class="wrapper" id="keyboard"  ng-keyup="noteStop()">
         <div class="key two">
           <div class="blackKey" title="C#3" value="138.59" ng-mousedown="key.value ='138.59'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value">
           </div>
@@ -9,63 +11,63 @@
         <div class="key three">
           <div class="blackKey" title="D#3"  ng-mousedown="key.value='155.56'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">
           </div>
-            <div class="whiteKey" title="C3" value="130.81" ng-mousedown="key.value='130.81'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">C</div>
+            <div class="whiteKey noteName" title="C3" value="130.81" ng-mousedown="key.value='130.81'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"> <p>Z</p></div>
         </div>
         <div class="key four">
-            <div class="whiteKey" title="D3"  ng-mousedown="key.value='146.83'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">D</div>
+            <div class="whiteKey noteName" title="D3"  ng-mousedown="key.value='146.83'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>X</p></div>
         </div>
 
         <div class="key two">
             <div class="blackKey" title="F#3"  ng-mousedown="key.value='185'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">
 
           </div>
-            <div class="whiteKey" title="E3"  ng-mousedown="key.value='164.81'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">E</div>
+            <div class="whiteKey noteName" title="E3"  ng-mousedown="key.value='164.81'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>C</p></div>
         </div>
         <div class="key three oct">
             <div class="blackKey" title="G#3"  ng-mousedown="key.value='207.65'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"></div>
 
-            <div class="whiteKey" title="F3"  ng-mousedown="key.value='174.61'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">F</div>
+            <div class="whiteKey noteName" title="F3"  ng-mousedown="key.value='174.61'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>V</p></div>
         </div>
         <div class="key four">
           <div class="blackKey" title="A#3"  ng-mousedown="key.value='233.08'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">
           </div>
-            <div class="whiteKey" title="G3"  ng-mousedown="key.value='196'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">G</div>
+            <div class="whiteKey noteName" title="G3"  ng-mousedown="key.value='196'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>B</p></div>
         </div>
         <div class="key two">
-            <div class="whiteKey"title="A3"  ng-mousedown="key.value='220'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">A</div>
+            <div class="whiteKey noteName"title="A3"  ng-mousedown="key.value='220'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>N</p></div>
         </div>
         <div class="key three">
             <div class="blackKey"title="C#4" value="138.59" ng-mousedown="key.value ='277.18'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value"></div>
-            <div class="whiteKey" title="B3"  ng-mousedown="key.value='246.94'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">B</div>
+            <div class="whiteKey noteName" title="B3"  ng-mousedown="key.value='246.94'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>M</p></div>
         </div>
 
         <div class="key four">
           <div class="blackKey" title="D#4" value="138.59" ng-mousedown="key.value ='311.13'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value"></div>
-              <div class="whiteKey" title="C4"  ng-mousedown="key.value='261.63'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">C</div>
+              <div class="whiteKey noteName" title="C4"  ng-mousedown="key.value='261.63'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>, Q</p></div>
         </div>
         <div class="key">
-              <div class="whiteKey" title="D4"  ng-mousedown="key.value='293.66'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">D</div>
+              <div class="whiteKey noteName" title="D4"  ng-mousedown="key.value='293.66'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>W</p></div>
         </div>
         <div class="key four">
           <div class="blackKey" title="F#4" value="138.59" ng-mousedown="key.value ='369.99'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value"></div>
-              <div class="whiteKey" title="E4"  ng-mousedown="key.value='329.63'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">E</div>
+              <div class="whiteKey noteName" title="E4"  ng-mousedown="key.value='329.63'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>E</p></div>
         </div>
         <div class="key four">
           <div class="blackKey" title="G#4" value="138.59" ng-mousedown="key.value ='415.3'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value"></div>
-              <div class="whiteKey" title="F4"  ng-mousedown="key.value='349.23'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">F</div>
+              <div class="whiteKey noteName" title="F4"  ng-mousedown="key.value='349.23'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>R</p></div>
         </div>
         <div class="key four">
           <div class="blackKey" title="A#4" value="138.59" ng-mousedown="key.value ='466.16'; noteStart()" ng-mouseup="noteStop()" ng-model="key.value"></div>
-              <div class="whiteKey" title="G4"  ng-mousedown="key.value='392'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">G</div>
+              <div class="whiteKey noteName" title="G4"  ng-mousedown="key.value='392'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>U</p></div>
         </div>
         <div class="key four">
-              <div class="whiteKey" title="A4"  ng-mousedown="key.value='440'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">A</div>
+              <div class="whiteKey noteName" title="A4"  ng-mousedown="key.value='440'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>I</p></div>
         </div>
         <div class="key four">
-              <div class="whiteKey" title="B4"  ng-mousedown="key.value='493.88'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">B</div>
+              <div class="whiteKey noteName" title="B4"  ng-mousedown="key.value='493.88'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>O</p></div>
         </div>
         <div class="key four">
-              <div class="whiteKey" title="C5"  ng-mousedown="key.value='523.25'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value">C</div>
+              <div class="whiteKey noteName" title="C5"  ng-mousedown="key.value='523.25'; noteStart()" ng-mouseup="noteStop()"  ng-model="key.value"><p>P</p></div>
         </div>
     </div>
   </div>

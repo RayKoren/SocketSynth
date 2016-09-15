@@ -1,9 +1,8 @@
-angular.module('app.controllers').controller('coreController', ['$scope', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', '$timeout', function($scope, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, $timeout) {
+angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', '$timeout', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, $timeout) {
     var vco = oscillatorService();
     var vco2 = oscillator2Service();
     var vca = vcaService();
     var analyser = analyserService();
-
     $scope.wave = {
         value: 'square'
     };
@@ -11,10 +10,10 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$loca
         value: 'sawtooth'
     };
     $scope.detune = {
-        value: 0
+        value: -18.2
     };
     $scope.detune2 = {
-        value: 0
+        value: -11.2
     };
     $scope.key = {
         value: '200'
@@ -25,6 +24,82 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$loca
     $scope.min = 0;
     $scope.max = 20;
 
+    function getRand(min, max) {
+        min = Math.ceil(440);
+        max = Math.floor(220);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    $scope.keyPress = function(keyCode) {
+        console.log(keyCode);
+        var x = getRand();
+        switch (keyCode) {
+            case 90:
+                x = 130.81;
+                break;
+            case 88:
+                x = 146.83;
+                break;
+            case 67:
+                x = 164.81;
+                break;
+            case 86:
+                x = 174.61;
+                break;
+            case 66:
+                x = 196;
+                break;
+            case 78:
+                x = 220;
+                break;
+            case 77:
+                x = 246.94;
+                break;
+            case 188:
+                x = 261.63;
+                break;
+            case 81:
+                x = 261.63;
+                break;
+            case 87:
+                x = 293.66;
+                break;
+            case 69:
+                x = 329.63;
+                break;
+            case 82:
+                x = 349.23;
+                break;
+            case 85:
+                x = 392;
+                break;
+            case 73:
+                x = 440;
+                break;
+            case 79:
+                x = 493.88;
+                break;
+            case 80:
+                x = 523.25;
+                break;
+        }
+        vco.type = $scope.wave.value;
+        vco.frequency.value = x;
+        vco.detune.value = $scope.detune.value;
+        vco2.type = $scope.wave2.value;
+        vco2.frequency.value = x;
+        vco2.detune.value = $scope.detune2.value;
+        vca.gain.value = $scope.vol.value;
+        /* Connections */
+        vco.connect(vca);
+        vco2.connect(vca);
+        vca.connect(analyser);
+        analyser.connect(audioContext.destination);
+    };
+
+    $scope.keyOff = function() {
+        noteStop();
+    };
 
     $scope.noteStart = function() {
         vco.type = $scope.wave.value;
@@ -40,9 +115,12 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$loca
         vca.connect(analyser);
         analyser.connect(audioContext.destination);
     };
+
+    function noteStop() {
+        vca.gain.value = 0;
+    }
+
     $scope.noteStop = function() {
         vca.gain.value = 0;
-
     };
-
 }]);
