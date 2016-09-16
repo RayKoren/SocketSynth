@@ -1,4 +1,8 @@
 <div class="row">
+    <div class="col-sm-4 visOutside"> Visualize
+        <div class="text-center visBtn" ng-click="switch('freqBars')">Bars</div>
+        <div class="text-center visBtn" ng-click="switch('optic')">3D</div>
+    </div>
     <div class="col-sm-4 text-center outside">
         <form>
             <label for="osc">Vol
@@ -13,31 +17,31 @@
             <label for="wave 1">Wave 1
                 {{ wave.value }}
                 <div class="row">
-                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'sine'">
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'sine'">
 
-                          &#8767;
+                        &#8767;
 
-                  </div>
-                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'square'">
+                    </div>
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'square'">
                         [ ]
 
-                  </div>
+                    </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'triangle'">
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave.value = 'triangle'">
 
-                          /\
-                  </div>
-                  <div class="col-sm-6 text-center waveBtn " ng-click="wave.value = 'sawtooth'">
-                          /\/
-                  </div>
+                        /\
+                    </div>
+                    <div class="col-sm-6 text-center waveBtn " ng-click="wave.value = 'sawtooth'">
+                        /\/
+                    </div>
 
                 </div>
                 <div class="row">
-                  <label for="osc">Detune
-                      {{ detune.value }}
-                      <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" value="18.2" >
-                  </label>
+                    <label for="osc">Detune
+                        {{ detune.value }}
+                        <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" value="18.2">
+                    </label>
 
                 </div>
             </label>
@@ -51,29 +55,29 @@
                 <div class="row">
                     <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'sine'">
 
-                            &#8767;
+                        &#8767;
 
                     </div>
                     <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'square'">
-                          [ ]
+                        [ ]
 
                     </div>
                 </div>
                 <div class="row">
-                  <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'triangle'">
+                    <div class="col-sm-6 text-center waveBtn" ng-click="wave2.value = 'triangle'">
 
-                          /\
-                  </div>
-                  <div class="col-sm-6 text-center waveBtn " ng-click="wave2.value = 'sawtooth'">
-                          /\/
-                  </div>
+                        /\
+                    </div>
+                    <div class="col-sm-6 text-center waveBtn " ng-click="wave2.value = 'sawtooth'">
+                        /\/
+                    </div>
 
                 </div>
                 <div class="row">
-                  <label for="osc">Detune
-                      {{ detune2.value }}
-                      <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" value="11.2">
-                  </label>
+                    <label for="osc">Detune
+                        {{ detune2.value }}
+                        <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" value="11.2">
+                    </label>
 
                 </div>
             </label>

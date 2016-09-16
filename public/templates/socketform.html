@@ -4,8 +4,8 @@
     </div>
     <div class="col-sm-6">
       <form  ng-keydown="noteStart()" ng-keyup="event=$event; noteStop()">
-      <input type="text" ng-model="content" select-on-click/>
-      <p>Content: {{content}} keyCode: {{ event.keyCode }}</p>
+      <input type="text"/>
+      <p>keyCode: {{ event.keyCode }}</p>
       </form>
     </div>
 </div>
