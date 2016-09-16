@@ -1,6 +1,7 @@
 <div class="row">
-    <div class="col-sm-4 visOutside"> Visualize
-        <div class="text-center visBtn" ng-click="switch('freqBars')">Bars</div>
+    <div class="col-sm-4 visOutside text-center"> Visualize
+        <div class="text-center visBtn" ng-click="switch('freqBars')">| | |</div>
+
         <div class="text-center visBtn" ng-click="switch('optic')">3D</div>
     </div>
     <div class="col-sm-4 text-center outside">
@@ -10,6 +11,7 @@
                 <input type="range" name="rangeV" ng-model="vol.value" step=".2" min="{{min}}" max="{{max}}" class="verticalRange">
             </label>
         </form>
+        Freq: {{ key.value }}
     </div>
 
     <div class="col-sm-4 text-center outsideWave">
