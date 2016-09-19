@@ -1,9 +1,9 @@
 <div class="row" >
     <div class="col-sm-6">
-        <p ng-repeat="message in messages"></p>
+        <p></p>
     </div>
     <div class="col-sm-6">
-      <form  ng-keydown="noteStart()" ng-keyup="event=$event; noteStop()">
+      <form  ng-keydown="noteStart()" ng-keyup="event=$event; noteStop(); keyOff()" ng-keydown="keyPress($event.keyCode)" >
       <input type="text" value="{{ messages }}"/>
       <p>keyCode: {{ event.keyCode }}</p>
       </form>

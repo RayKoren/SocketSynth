@@ -8,8 +8,10 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     // socket chat //
     $scope.messages = [];
 
-    chatSocket.on('message', function(data) {
+    chatSocket.on('message', function(data, keyCode) {
         $scope.messages.push(data.message);
+        $scope.keyPress(keyCode);
+        console.log(keyCode);
     });
 
     /* Connections */
