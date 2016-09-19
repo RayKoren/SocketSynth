@@ -1,10 +1,16 @@
-angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', '$timeout', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, $timeout) {
+angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', '$timeout', 'chatSocket', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, $timeout, chatSocket) {
     var vco = oscillatorService();
     var vco2 = oscillator2Service();
     var vca = vcaService();
     var analyser = analyserService();
     var analyser2 = analyserService2();
 
+    // socket chat //
+    $scope.messages = [];
+
+    chatSocket.on('message', function(data) {
+        $scope.messages.push(data.message);
+    });
 
     /* Connections */
     vco.connect(vca);
@@ -15,12 +21,12 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     analyser2.connect(audioContext.destination);
 
 
-    $scope.switch = function(aType){
-      if (aType == 'freqBars' ){
-        $scope.optic = false;
-      } else {
-        $scope.optic = true;
-      }
+    $scope.switch = function(aType) {
+        if (aType == 'freqBars') {
+            $scope.optic = false;
+        } else {
+            $scope.optic = true;
+        }
     };
 
 
@@ -53,7 +59,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         max = Math.floor(220);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-// Map Keyboard to Synth Keys and Play
+    // Map Keyboard to Synth Keys and Play
     $scope.keyPress = function(keyCode) {
         var x = getRand();
         switch (keyCode) {
@@ -115,7 +121,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         vca.gain.value = $scope.vol.value;
     };
 
-// Click To Play Note
+    // Click To Play Note
 
     $scope.noteStart = function() {
         vco.type = $scope.wave.value;
@@ -127,7 +133,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         vca.gain.value = $scope.vol.value;
 
     };
-// Note Stops
+    // Note Stops
     function noteStop() {
         vca.gain.value = 0;
     }

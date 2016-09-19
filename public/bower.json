@@ -1,0 +1,25 @@
+{
+  "name": "socketsynth",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Ray Koren"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularjs"
+  ],
+  "homepage": "https://github.com/RayKoren/SocketSynth",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-socket-io": "^0.7.0",
+    "angular-route": "^1.5.8",
+    "socket.io-client": "^1.4.8"
+  }
+}
