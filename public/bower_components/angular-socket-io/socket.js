@@ -28,7 +28,7 @@ angular.module('btford.socket-io', []).
 
       return function socketFactory (options) {
         options = options || {};
-        var socket = options.ioSocket || io.connect();
+        var socket = options.ioSocket || io.connect('http://localhost:8080');
         var prefix = options.prefix === undefined ? defaultPrefix : options.prefix ;
         var defaultScope = options.scope || $rootScope;
 
