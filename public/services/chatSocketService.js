@@ -1,3 +1,7 @@
 angular.module("app.services").factory('chatSocket', ['socketFactory', function(socketFactory){
-	return socketFactory();
+	var socket = socketFactory();
+
+	socket.forward('broadcast');
+
+	return socket;
 }]);

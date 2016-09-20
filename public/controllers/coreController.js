@@ -8,11 +8,28 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     // socket chat //
     $scope.messages = [];
 
-    chatSocket.on('message', function(data, keyCode) {
+    chatSocket.on('message', function(data, $event) {
+      $scope.noteStop();
         $scope.messages.push(data.message);
+        var keyCode = data.message.toUpperCase().charCodeAt(0);
         $scope.keyPress(keyCode);
-        console.log(keyCode);
     });
+    $scope.sendMessage = function () {
+   chatSocket.emit('send:message', {
+     message: $scope.message
+   });
+   console.log('hi');
+   $scope.messages.push({
+     text: $scope.message
+   });
+   $scope.message = '';
+ };
+    chatSocket.on('send:message', function (message) {
+      $scope.messages.push(message);
+      console.log('hi again');
+
+    });
+
 
     /* Connections */
     vco.connect(vca);
@@ -113,7 +130,9 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
             case 80:
                 x = 523.25;
                 break;
+
         }
+
         vco.type = $scope.wave.value;
         vco.frequency.value = x;
         vco.detune.value = $scope.detune.value;
@@ -121,6 +140,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         vco2.frequency.value = x;
         vco2.detune.value = $scope.detune2.value;
         vca.gain.value = $scope.vol.value;
+
+
     };
 
     // Click To Play Note
