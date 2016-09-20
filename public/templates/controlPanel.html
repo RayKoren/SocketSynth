@@ -1,13 +1,15 @@
 <div class="row">
-    <div class="col-sm-4 visOutside text-center"> Visualize
+    <div class="col-sm-3 visOutside text-center">
+        Visualize
         <div class="text-center visBtn" ng-click="switch('freqBars')">| | |</div>
 
         <div class="text-center visBtn" ng-click="switch('optic')">3D</div>
-        Freq: 
-        {{ key.value }}
+        <div class="text-center visBtn" ng-click="event=$event; noteStop(); keyOff()">Kill Sound</div>
+        <div class="text-center visBtn">Freq:
+            {{ key.value }}</div>
 
     </div>
-    <div class="col-sm-4 text-center outside">
+    <div class="col-sm-3 text-center outside">
         <form>
             <label for="osc">Vol
                 {{ vol.value }}
@@ -16,7 +18,7 @@
         </form>
     </div>
 
-    <div class="col-sm-4 text-center outsideWave">
+    <div class="col-sm-3 text-center outsideWave">
         <form>
             <label for="wave 1">Wave 1
                 {{ wave.value }}
@@ -52,7 +54,7 @@
         </form>
     </div>
 
-    <div class="col-sm-4 text-center outsideWave">
+    <div class="col-sm-3 text-center outsideWave">
         <form>
             <label for="wave 2">Wave 2
                 {{ wave2.value }}

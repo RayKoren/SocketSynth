@@ -75,6 +75,16 @@ main {
     width: 2px;
     margin: 8px auto;
 }
+.inputBox {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width: medium;
+  border-radius: 2px;
+  font-size: 2rem;
+  width: auto;
+  height: 4rem;
+  margin: 1rem;
+}
 
 .outsideWave {
   border-style: solid;
@@ -100,8 +110,8 @@ main {
   border-width:thin;
   border-radius: 2px;
   margin: 4px;
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
 }
 .visBtn:hover {
   background: hsla(187.7, 91.36%, 31.76%, 0.3);

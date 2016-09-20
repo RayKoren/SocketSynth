@@ -9,26 +9,24 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     $scope.messages = [];
 
     chatSocket.on('message', function(data, $event) {
-      $scope.noteStop();
+        noteStop();
         $scope.messages.push(data.message);
         var keyCode = data.message.toUpperCase().charCodeAt(0);
         $scope.keyPress(keyCode);
     });
-    $scope.sendMessage = function () {
-   chatSocket.emit('send:message', {
-     message: $scope.message
-   });
-   console.log('hi');
-   $scope.messages.push({
-     text: $scope.message
-   });
-  //  $scope.message = '';
- };
-    // chatSocket.on('send:message', function (message) {
-    //   $scope.messages.push(message);
-    //   console.log('hi again');
-    //
-    // });
+
+    $scope.sendMessage = function() {
+        chatSocket.emit('send:message', {
+            message: $scope.message
+        });
+        $scope.messages.push({
+            text: $scope.message
+        });
+        //  $scope.message = '';
+    };
+    chatSocket.on('noteOff', function(data) {
+        noteStop();
+    });
 
 
     /* Connections */
@@ -157,12 +155,13 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
 
     };
     // Note Stops
+
     function noteStop() {
         vca.gain.value = 0;
     }
-
     $scope.noteStop = function() {
         vca.gain.value = 0;
+        chatSocket.emit('noteOff');
     };
     $scope.keyOff = function() {
         noteStop();

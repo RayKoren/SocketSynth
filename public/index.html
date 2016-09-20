@@ -30,22 +30,16 @@
         <!-- <base href="/"/> -->
     </head>
     <body>
-        <header>
-
-        </header>
-        <main class="container" >
+        <header></header>
+        <main class="container">
             <div ui-view>
                 <div ng-controller="coreController">
-                  <div ng-keydown="keyPress($event.keyCode)" ng-keyup="keyOff()" >
-
-
+                  <!-- <div ng-keydown="keyPress($event.keyCode)" ng-keyup="keyOff()" > -->
                     <analyser></analyser>
                     <controlpanel></controlpanel>
-
                     <keyboard></keyboard>
-
                     <socketform></socketform>
-                </div>
+                <!-- </div> -->
                 </div>
             </div>
 
