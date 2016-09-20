@@ -1,10 +1,10 @@
-angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', '$timeout', 'chatSocket', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, $timeout, chatSocket) {
+angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', '$timeout', 'bqfService', 'chatSocket', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, $timeout, bqfService, chatSocket) {
     var vco = oscillatorService();
     var vco2 = oscillator2Service();
     var vca = vcaService();
     var analyser = analyserService();
     var analyser2 = analyserService2();
-
+    var bqf = bqfService();
     // socket chat //
     $scope.messages = [];
 
@@ -29,15 +29,9 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     });
 
 
-    /* Connections */
-    vco.connect(vca);
-    vco2.connect(vca);
-    vca.connect(analyser);
-    vca.connect(analyser2);
-    analyser.connect(audioContext.destination);
-    analyser2.connect(audioContext.destination);
 
 
+    // switch visual div //
     $scope.switch = function(aType) {
         if (aType == 'freqBars') {
             $scope.optic = false;
@@ -45,6 +39,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
             $scope.optic = true;
         }
     };
+
 
 
     $scope.wave = {
@@ -67,6 +62,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     };
     $scope.min = 0;
     $scope.max = 20;
+ $scope.filterFreq = 50;
+ $scope.filterQ = 50;
     $scope.vis = {
         value: 'freqBars'
     };
@@ -78,7 +75,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     }
     // Map Keyboard to Synth Keys and Play
     $scope.keyPress = function(keyCode) {
-        var x = getRand();
+        // var x = getRand();
+        var x;
         switch (keyCode) {
             case 90:
                 x = 130.81;
@@ -128,9 +126,42 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
             case 80:
                 x = 523.25;
                 break;
-
+            case 83:
+                x = 138.59;
+                break;
+            case 68:
+                x = 155.56;
+                break;
+            case 71:
+                x = 185;
+                break;
+            case 72:
+                x = 207.65;
+                break;
+            case 74:
+                x = 233.08;
+                break;
+            case 50:
+                x = 277.18;
+                break;
+            case 51:
+                x = 311.13;
+                break;
+            case 53:
+                x = 369.99;
+                break;
+            case 55:
+                x = 369.99;
+                break;
+            case 56:
+                x = 415.3;
+                break;
+            case 57:
+                x = 466.16;
+                break;
         }
-
+        bqf.Q = $scope.filterQ;
+        bqf.frequency.value = $scope.filterFreq;
         vco.type = $scope.wave.value;
         vco.frequency.value = x;
         vco.detune.value = $scope.detune.value;
@@ -145,6 +176,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     // Click To Play Note
 
     $scope.noteStart = function() {
+        bqf.Q = $scope.filterQ;
+        bqf.frequency.value = $scope.filterFreq;
         vco.type = $scope.wave.value;
         vco.frequency.value = $scope.key.value;
         vco.detune.value = $scope.detune.value;
@@ -152,8 +185,19 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         vco2.frequency.value = $scope.key.value;
         vco2.detune.value = $scope.detune2.value;
         vca.gain.value = $scope.vol.value;
-
+        console.log($scope.filterQ.value);
     };
+    /* Connections */
+    vco.connect(vca);
+    vco2.connect(vca);
+    vca.connect(bqf);
+    vca.connect(bqf);
+    bqf.connect(analyser);
+    bqf.connect(analyser2);
+    analyser.connect(audioContext.destination);
+    analyser2.connect(audioContext.destination);
+
+
     // Note Stops
 
     function noteStop() {
@@ -166,4 +210,35 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     $scope.keyOff = function() {
         noteStop();
     };
+    $(function() {
+        $(".dial").dial();
+    });
+// var fValue = {};
+//     function filterVal(fValue) {
+//       $scope.filterQ.value = fValue["0"];
+//       $scope.filterFreq.value = fValue["1"];
+//     }
+    $(function() {
+        $(".pad")
+            .xy({
+                displayPrevious: true,
+                min: 10,
+                max: 2000,
+                fgColor: "#222222",
+                bgColor: "#EEEEEE",
+                change: function(value) {
+                  $scope.filterQ = value["1"];
+                  $scope.filterFreq = value["0"];
+                  console.log($scope.filterQ, $scope.filterFreq);
+                  $scope.$apply();
+
+                }
+            })
+            .css({
+                'border': '5px solid #00CCFF'
+            });
+    });
+
+
+
 }]);

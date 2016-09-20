@@ -7,74 +7,71 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <!-- d3js  -->
         <script src="https://d3js.org/d3.v4.js"></script>
-
+        <script type="text/javascript" src="js/jquery.kontrol.js"></script>
         <!-- Bootstrap Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Bootstrap Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    </script>
+    <!-- Angular -->
+    <script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <!--socket.io  -->
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="/bower_components/socket.io-client/socket.io.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
 
-
-        </script>
-        <!-- Angular -->
-        <script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-        <!--socket.io  -->
-        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-        <script type="text/javascript" src="/bower_components/socket.io-client/socket.io.js"></script>
-      <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
-
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
-        <!-- <base href="/"/> -->
-    </head>
-    <body>
-        <header></header>
-        <main class="container">
-            <div ui-view>
-                <div ng-controller="coreController">
-                  <!-- <div ng-keydown="keyPress($event.keyCode)" ng-keyup="keyOff()" > -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+    <!-- <base href="/"/> -->
+</head>
+<body>
+    <header></header>
+    <main class="container">
+        <div>
+            <div ng-controller="coreController">
+                <div ng-keydown="keyPress($event.keyCode)" ng-keyup="keyOff()">
                     <analyser></analyser>
                     <controlpanel></controlpanel>
                     <keyboard></keyboard>
                     <socketform></socketform>
-                <!-- </div> -->
                 </div>
             </div>
+        </div>
 
-        </main>
-        <footer>
-          <topnav></topnav>
-        </footer>
+    </main>
+    <footer>
+        <topnav></topnav>
+    </footer>
 
-        <!-- Directives  -->
+    <!-- Directives  -->
 
-        <script type="text/javascript" src="directives/mainDirective.js"></script>
-        <script type="text/javascript" src="directives/chatDirective.js"></script>
-        <script type="text/javascript" src="directives/navDirective.js"></script>
-        <script type="text/javascript" src="directives/keyboardDirective.js"></script>
-        <script type="text/javascript" src="/directives/synthControlPanelDirective.js"></script>
-        <script type="text/javascript" src="/directives/analyserDirective.js"></script>
-        <scrip type="text/javascript" src="/directives/keyPressDirective.js"></script>
-        <!-- Controllers -->
-        <script type="text/javascript" src="/controllers/mainController.js"></script>
-        <script type="text/javascript" src="/controllers/coreController.js"></script>
-        <!-- Services -->
-        <script type="text/javascript" src="/services/mainService.js"></script>
-        <script type="text/javascript" src="/services/audioContext.js"></script>
-        <script type="text/javascript" src="/services/oscillatorService.js"></script>
-        <script type="text/javascript" src="/services/oscillator2Service.js"></script>
-        <script type="text/javascript" src="/services/vcaService.js"></script>
+    <script type="text/javascript" src="directives/mainDirective.js"></script>
+    <script type="text/javascript" src="directives/chatDirective.js"></script>
+    <script type="text/javascript" src="directives/navDirective.js"></script>
+    <script type="text/javascript" src="directives/keyboardDirective.js"></script>
+    <script type="text/javascript" src="/directives/synthControlPanelDirective.js"></script>
+    <script type="text/javascript" src="/directives/analyserDirective.js"></script>
+    <scrip type="text/javascript" src="/directives/keyPressDirective.js"></script>
+    <!-- Controllers -->
+    <script type="text/javascript" src="/controllers/mainController.js"></script>
+    <script type="text/javascript" src="/controllers/coreController.js"></script>
+    <!-- Services -->
+    <script type="text/javascript" src="/services/mainService.js"></script>
+    <script type="text/javascript" src="/services/audioContext.js"></script>
+    <script type="text/javascript" src="/services/oscillatorService.js"></script>
+    <script type="text/javascript" src="/services/oscillator2Service.js"></script>
+    <script type="text/javascript" src="/services/vcaService.js"></script>
 
-        <script type="text/javascript" src="/services/analyserService.js"></script>
-        <script type="text/javascript" src="/services/analyserService2.js"></script>
-        <script type="text/javascript" src="/services/d3Service.js"></script>
-        <script type="text/javascript" src="/services/chatSocketService.js"></script>
-        <!-- App -->
-        <script type="text/javascript" src='/bower_components/angular-socket-io/socket.js'>
-
-        </script>
-        <script type="text/javascript" src="js/app.js"></script>
-    </body>
+    <script type="text/javascript" src="/services/analyserService.js"></script>
+    <script type="text/javascript" src="/services/analyserService2.js"></script>
+    <script type="text/javascript" src="/services/biquadFilterService.js"></script>
+    <script type="text/javascript" src="/services/d3Service.js"></script>
+    <script type="text/javascript" src="/services/chatSocketService.js"></script>
+    <!-- App -->
+    <script type="text/javascript" src='/bower_components/angular-socket-io/socket.js'></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
 </html>

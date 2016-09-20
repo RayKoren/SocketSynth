@@ -5,9 +5,8 @@
 
         <div class="text-center visBtn" ng-click="switch('optic')">3D</div>
         <div class="text-center visBtn" ng-click="event=$event; noteStop(); keyOff()">Kill Sound</div>
-        <div class="text-center visBtn">Freq:
-            {{ key.value }}</div>
-
+        <!-- <div class="text-center visBtn">Freq:
+            {{ key.value }} </div> -->
     </div>
     <div class="col-sm-3 text-center outside">
         <form>
@@ -89,4 +88,10 @@
             </label>
         </form>
     </div>
+    <div class="col-sm-6">
+              <fieldset class="pad" data-width="180" data-height="180">
+                  x : <input style="display: none" name="x" >{{ filterFreq }}
+                  y : <input style="display: none" name="y" >{{ filterQ }}
+              </fieldset>
+          </div>
 </div>
