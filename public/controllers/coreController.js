@@ -22,13 +22,13 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
    $scope.messages.push({
      text: $scope.message
    });
-   $scope.message = '';
+  //  $scope.message = '';
  };
-    chatSocket.on('send:message', function (message) {
-      $scope.messages.push(message);
-      console.log('hi again');
-
-    });
+    // chatSocket.on('send:message', function (message) {
+    //   $scope.messages.push(message);
+    //   console.log('hi again');
+    //
+    // });
 
 
     /* Connections */
