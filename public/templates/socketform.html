@@ -4,8 +4,10 @@
     </div>
     <div class="col-sm-6">
       <form  ng-keydown="noteStart(); sendMessage()" ng-keyup="event=$event; noteStop(); keyOff()" ng-keydown="keyPress($event.keyCode)" >
+      <input type="text" value="{{ messages }}" ng-model='message' ng-repeat="message in messages"/>
       <input type="text" value="{{ messages }}" ng-model='message'/>
-      <p >keyCode: {{ event.keyCode }}</p>
+
+      <p>keyCode: {{ event.keyCode }}</p>
       </form>
     </div>
 </div>
