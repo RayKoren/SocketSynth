@@ -62,6 +62,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     };
     $scope.min = 0;
     $scope.max = 20;
+    $scope.filterType = "lowpass";
+
     $scope.filterFreq = 487;
     $scope.filterQ = 800;
     $scope.vis = {
@@ -160,6 +162,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
                 x = 466.16;
                 break;
         }
+        bqf.type = $scope.filterType;
         bqf.Q = $scope.filterQ;
         bqf.frequency.value = $scope.filterFreq;
         vco.type = $scope.wave.value;
@@ -176,6 +179,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     // Click To Play Note
 
     $scope.noteStart = function() {
+        bqf.type = $scope.filterType;
         bqf.Q = $scope.filterQ;
         bqf.frequency.value = $scope.filterFreq;
         vco.type = $scope.wave.value;
