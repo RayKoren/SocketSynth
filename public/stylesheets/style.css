@@ -115,16 +115,21 @@ main {
   box-shadow: 0px 0px 2px 2px hsla(0, 0%, 100%, 0.3);
 }
 .visBtn:active {
-  background: -webkit-radial-gradient( circle, #FFFFFF 10%, #CC332A 80%);
+  background: -webkit-radial-gradient( circle, #FFFFFF 10%, #FFCC00 80%);
   box-shadow: 0px 0px 3px 3px hsl(0, 35%, 93%)
   text-align: center;
 }
+
 .verticalRange {
     -webkit-appearance: slider-vertical;
-    background-color: #ccc;
     height: 112px;
-    width: 2px;
     margin: 4px ;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  background: #00CCFF;
+}
+input[type=range]::-webkit-slider-runnable-track:active {
+  background: -webkit-linear-gradient( #FFFFFF 10%, #00CCFF 80%);
 }
 .inputBox {
   border-style: solid;
@@ -199,8 +204,8 @@ button {
   border-width: medium;
   border-radius: 2px;
   margin: 10px;
-  width: 600px;
-  height: auto;
+  width: 300px;
+  height: 200px;
   font-family: 'Share Tech Mono', monospace;
 
 }

@@ -208,7 +208,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     analyser2.connect(audioContext.destination);
     analyser3.connect(audioContext.destination);
 
-    // Note Stops
+    // Note Stops //
 
     function noteStop() {
         vca.gain.value = 0;
