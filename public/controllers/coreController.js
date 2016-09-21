@@ -260,7 +260,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
                 .xy({
                     displayPrevious: true,
                     min: 10,
-                    max: 2000,
+                    max: 3000,
                     fgColor: "#222222",
                     bgColor: "#555555",
                     change: function(value) {
