@@ -195,7 +195,6 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         vco2.frequency.value = $scope.key.value;
         vco2.detune.value = $scope.detune2.value;
         vca.gain.value = $scope.vol.value;
-        console.log($scope.filterQ.value);
     };
     /* Connections */
     vco.connect(vca);
@@ -234,7 +233,6 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
             change: function(value) {
                 $scope.detune2.value = value;
                 $scope.$apply();
-                console.log(value);
             }
         });
     });
@@ -251,7 +249,6 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
                 change: function(value) {
                     $scope.detune.value = value;
                     $scope.$apply();
-                    console.log(value);
                 }
             });
         });

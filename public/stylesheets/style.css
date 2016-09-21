@@ -193,6 +193,17 @@ button {
   width: 600px;
   height: 200px;
 }
+.titleContainer {
+  border-style: solid;
+  border-color: #00CCFF;
+  border-width: medium;
+  border-radius: 2px;
+  margin: 10px;
+  width: 600px;
+  height: auto;
+  font-family: 'Share Tech Mono', monospace;
+
+}
 .analyserCtrl {
   border-style: solid;
   border-color: #00CCFF;
