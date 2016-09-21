@@ -62,8 +62,8 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     };
     $scope.min = 0;
     $scope.max = 20;
- $scope.filterFreq = 50;
- $scope.filterQ = 50;
+    $scope.filterFreq = 487;
+    $scope.filterQ = 800;
     $scope.vis = {
         value: 'freqBars'
     };
@@ -210,14 +210,37 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     $scope.keyOff = function() {
         noteStop();
     };
+
+    // Filter Section //
     $(function() {
-        $(".dial").dial();
+        $(".dial").dial({
+            'min': -200,
+            'max': 200,
+            'width': 50,
+            'height': 50,
+            'color': "#00CCFF",
+            change: function(value) {
+                $scope.detune2.value = value;
+                $scope.$apply();
+                console.log(value);
+            }
+        });
     });
-// var fValue = {};
-//     function filterVal(fValue) {
-//       $scope.filterQ.value = fValue["0"];
-//       $scope.filterFreq.value = fValue["1"];
-//     }
+
+    $(function() {
+        $(".dial2").dial({
+            'min': -200,
+            'max': 200,
+            'width': 50,
+            'height': 50,
+            'color': "#FFCC00",
+            change: function(value) {
+                $scope.detune.value = value;
+                $scope.$apply();
+                console.log(value);
+            }
+        });
+    });
     $(function() {
         $(".pad")
             .xy({
@@ -225,18 +248,14 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
                 min: 10,
                 max: 2000,
                 fgColor: "#222222",
-                bgColor: "#EEEEEE",
+                bgColor: "#555555",
                 change: function(value) {
-                  $scope.filterQ = value["1"];
-                  $scope.filterFreq = value["0"];
-                  console.log($scope.filterQ, $scope.filterFreq);
-                  $scope.$apply();
-
+                    $scope.filterQ = value["1"];
+                    $scope.filterFreq = value["0"];
+                    $scope.$apply();
                 }
             })
-            .css({
-                'border': '5px solid #00CCFF'
-            });
+
     });
 
 

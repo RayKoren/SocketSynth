@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-3 visOutside text-center">
+    <div class="col-sm-2 visOutside text-center">
         Visualize
         <div class="text-center visBtn" ng-click="switch('freqBars')">| | |</div>
 
@@ -8,7 +8,7 @@
         <!-- <div class="text-center visBtn">Freq:
             {{ key.value }} </div> -->
     </div>
-    <div class="col-sm-3 text-center outside">
+    <div class="col-sm-2 text-center outside">
         <form>
             <label for="osc">Vol
                 {{ vol.value }}
@@ -17,7 +17,7 @@
         </form>
     </div>
 
-    <div class="col-sm-3 text-center outsideWave">
+    <div class="col-sm-2 text-center outsideWave">
         <form>
             <label for="wave 1">Wave 1
                 {{ wave.value }}
@@ -43,17 +43,16 @@
 
                 </div>
                 <div class="row">
-                    <label for="osc">Detune
-                        {{ detune.value }}
-                        <input type="range" ng-model="detune.value" step=".1" min="-200" max="200" value="18.2">
-                    </label>
-
-                </div>
+                  <div class="col-sm-12">
+                    <label>Detune</label>
+                      </div>
+                        <input class="detune dial2" ng-model="detune.value" step=".1" min="-200" max="200" value="11.2"  data-angleOffset="-125" data-angleArc="250">
+                      </div>
             </label>
         </form>
     </div>
 
-    <div class="col-sm-3 text-center outsideWave">
+    <div class="col-sm-2 text-center outsideWave">
         <form>
             <label for="wave 2">Wave 2
                 {{ wave2.value }}
@@ -79,19 +78,21 @@
 
                 </div>
                 <div class="row">
-                    <label for="osc">Detune
-                        {{ detune2.value }}
-                        <input type="range" ng-model="detune2.value" step=".1" min="-200" max="200" value="11.2">
-                    </label>
-
-                </div>
-            </label>
+                  <div class="col-sm-12">
+                    <label>Detune</label>
+                      </div>
+                        <input class="detune dial" ng-model="detune2.value" step=".1" min="-200" max="200" value="11.2"  data-angleOffset="-125" data-angleArc="250">
+                      </div>
+                      </label>
         </form>
     </div>
-    <div class="col-sm-6">
-              <fieldset class="pad" data-width="180" data-height="180">
-                  x : <input style="display: none" name="x" >{{ filterFreq }}
-                  y : <input style="display: none" name="y" >{{ filterQ }}
-              </fieldset>
-          </div>
+    <div class="col-sm-2 outsideFilter ">
+        BiQuadFilter Control
+        <fieldset class="pad" data-width="180" data-height="180">
+            x :
+            <input style="display: none" name="x">{{ filterFreq }}
+            y :
+            <input style="display: none" name="y">{{ filterQ }}
+        </fieldset>
+    </div>
 </div>

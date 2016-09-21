@@ -103,10 +103,9 @@ main {
   border-width: medium;
   border-radius: 2px;
   margin: 10px;
-  width: 200px;
+  width: auto;
   height: 230px;
-  padding:30px
-  font-size: 2rem;
+  padding: 4px 4px 4px 4px;
 }
 .waveBtn {
   border-style: solid;
@@ -126,6 +125,12 @@ main {
   width: 46px;
   height: 46px;
 }
+
+
+/*.detune{
+  font-size: 2rem;
+}*/
+
 .visBtn:hover {
   background: hsla(187.7, 91.36%, 31.76%, 0.3);
   box-shadow: 0px 0px 2px 2px hsla(0, 0%, 100%, 0.3);
