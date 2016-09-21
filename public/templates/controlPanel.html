@@ -1,19 +1,19 @@
 <div class="row">
     <div class="col-xs-2 visOutside text-center">
         <label>VISUAL</label>
+        {{ switch }}
         <div class="text-center visBtn" ng-click="switch('freqBars')">| | |</div>
-
         <div class="text-center visBtn" ng-click="switch('optic')">3D</div>
-        <div class="text-center visBtn" ng-click="event=$event; noteStop(); keyOff()">Kill Sound</div>
-
+        <div class="text-center visBtn" ng-click="switch('o2')">o2</div>
     </div>
     <div class="col-xs-2 text-center outside">
         <form>
             <label for="osc">Vol
-                {{ vol.value }}
                 <input type="range" name="rangeV" ng-model="vol.value" step=".2" min="{{min}}" max="{{max}}" class="verticalRange">
+                {{ vol.value }}
             </label>
         </form>
+        <div class="text-center visBtn" ng-click="event=$event; noteStop(); keyOff()">Kill Sound</div>
     </div>
 
     <div class="col-xs-2 text-center outsideWave">

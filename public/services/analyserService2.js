@@ -4,10 +4,10 @@ angular.module("app.services")
     function(audioContext, $document, $rootScope) {
         return function() {
             var analyser = audioContext.createAnalyser();
-            var frequencyData = new Uint8Array(220);
+            var frequencyData = new Uint8Array(600);
             var svgHeight = 190;
             var svgWidth = 580;
-            var barPadding = '.2';
+            var barPadding = '.1';
 
             var svg =    d3.select('div.svganalyserContainer2').append('svg').attr('height', svgHeight).attr('width', svgWidth);
 
@@ -37,6 +37,7 @@ angular.module("app.services")
                      .attr('height', function(d) {
                         return d;
                      })
+                     .attr("transform", function(d, i) { return "skewX(" + (d / 25) * 10 + [i * 100 ] + ")"; })
                      .attr('fill', function(d) {
                         return 'rgb(255, 204, ' + d + ')';
                      });

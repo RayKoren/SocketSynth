@@ -1,9 +1,10 @@
-angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', '$timeout', 'bqfService', 'chatSocket', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, $timeout, bqfService, chatSocket) {
+angular.module('app.controllers').controller('coreController', ['$scope', '$element', '$location', '$document', 'audioContext', 'oscillatorService', 'oscillator2Service', 'vcaService', 'analyserService', 'analyserService2', 'analyserService3', '$timeout', 'bqfService', 'chatSocket', function($scope, $element, $location, $document, audioContext, oscillatorService, oscillator2Service, vcaService, analyserService, analyserService2, analyserService3, $timeout, bqfService, chatSocket) {
     var vco = oscillatorService();
     var vco2 = oscillator2Service();
     var vca = vcaService();
     var analyser = analyserService();
     var analyser2 = analyserService2();
+    var analyser3 = analyserService3();
     var bqf = bqfService();
     // socket chat //
     $scope.messages = [];
@@ -27,16 +28,21 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     chatSocket.on('noteOff', function(data) {
         noteStop();
     });
-
-
-
-
     // switch visual div //
+    $scope.freqBars = true;
     $scope.switch = function(aType) {
         if (aType == 'freqBars') {
+          $scope.freqBars = true;
             $scope.optic = false;
+            $scope.o2 = false;
+          } else if (aType == 'o2'){
+            $scope.o2 = true;
+            $scope.optic = false;
+            $scope.freqBars = false;
         } else {
             $scope.optic = true;
+          $scope.o2 = false;
+          $scope.freqBars = false;
         }
     };
 
@@ -198,9 +204,10 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     vca.connect(bqf);
     bqf.connect(analyser);
     bqf.connect(analyser2);
+    bqf.connect(analyser3);
     analyser.connect(audioContext.destination);
     analyser2.connect(audioContext.destination);
-
+    analyser3.connect(audioContext.destination);
 
     // Note Stops
 
