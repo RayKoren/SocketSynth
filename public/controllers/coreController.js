@@ -212,6 +212,7 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
     };
 
     // Filter Section //
+    angular.element(document).ready(function () {
     $(function() {
         $(".dial").dial({
             'min': -200,
@@ -227,37 +228,39 @@ angular.module('app.controllers').controller('coreController', ['$scope', '$elem
         });
     });
 
-    $(function() {
-        $(".dial2").dial({
-            'min': -200,
-            'max': 200,
-            'width': 50,
-            'height': 50,
-            'color': "#FFCC00",
-            change: function(value) {
-                $scope.detune.value = value;
-                $scope.$apply();
-                console.log(value);
-            }
+
+
+        $(function() {
+            $(".dial2").dial({
+                'min': -200,
+                'max': 200,
+                'width': 50,
+                'height': 50,
+                'color': "#FFCC00",
+                change: function(value) {
+                    $scope.detune.value = value;
+                    $scope.$apply();
+                    console.log(value);
+                }
+            });
+        });
+        $(function() {
+            $(".pad")
+                .xy({
+                    displayPrevious: true,
+                    min: 10,
+                    max: 2000,
+                    fgColor: "#222222",
+                    bgColor: "#555555",
+                    change: function(value) {
+                        $scope.filterQ = value["1"];
+                        $scope.filterFreq = value["0"];
+                        $scope.$apply();
+                    }
+                });
+
         });
     });
-    $(function() {
-        $(".pad")
-            .xy({
-                displayPrevious: true,
-                min: 10,
-                max: 2000,
-                fgColor: "#222222",
-                bgColor: "#555555",
-                change: function(value) {
-                    $scope.filterQ = value["1"];
-                    $scope.filterFreq = value["0"];
-                    $scope.$apply();
-                }
-            })
-
-    });
-
 
 
 }]);

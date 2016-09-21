@@ -1,10 +1,10 @@
 <div class="row" >
-    <div class="col-md-4">
+    <div class="col-xs-6">
       <input ng-keydown="noteStart(); sendMessage(); keyPress($event.keyCode)" ng-keyup="event=$event; noteStop(); keyOff()"  class="inputBox" type="text" placeholder="Type Notes Here" value="{{ messages }}" ng-model='message'/>
       <!-- keyCode: {{ event.keyCode }} -->
 
     </div>
-    <div class="col-md-4 inputBox">
-      Type Keys in Input box to Play and Broadcast
+    <div class="col-xs-6 inputBox">
+      <p>Type in Input Box to Play and Broadcast</p>
     </div>
 </div>
